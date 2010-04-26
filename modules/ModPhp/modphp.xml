@@ -1,0 +1,6 @@
+<Module name="ModPHP">
+  <conf>
+    <php	v="/usr/bin/php5-cgi"/>
+    <py		v="/usr/bin/python" />
+  </conf>
+</Module>

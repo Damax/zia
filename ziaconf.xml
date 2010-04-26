@@ -1,0 +1,83 @@
+<xml>
+<!-- zia contains the values not associated
+  with any virtualHost (for example the ModulePath) and also the default
+  value for the VirtualHost that does not provide a specific value-->
+<zia>
+  <DocumentRoot v="/var/www" />
+  <DirectoryIndex v="index.html index.php" />
+  <ModulePath v="./modules" />
+  <ConnectionTimeout v="20" />
+</zia>
+
+<!--
+   The configuration should contain at least ONE VirtualHost
+   (else: the zia will just shutdown)
+-->
+
+<!-- This VirtualHost will just be listening on port 8000
+  with the default values specified in the <zia/> node -->
+<VirtualHost>
+  <Port v="8000" />
+  <DocumentRoot v="/var/www" />
+  <Host v="localhost" />
+</VirtualHost>
+
+<VirtualHost>
+  <Port v="8000" />
+  <DocumentRoot v="/var/www/salut" />
+  <Host v="127.0.0.1" />
+</VirtualHost>
+
+<VirtualHost>
+  <Port v="8000" />
+  <DocumentRoot v="/var/www" />
+  <Host v="teub" />
+</VirtualHost>
+
+<VirtualHost>
+  <Port v="8080" />
+  <DocumentRoot v="/var/www/pute" />
+  <Host v="localhost" />
+</VirtualHost>
+
+<VirtualHost>
+  <Port v="4443" />
+  <DocumentRoot v="/var/www/ssl" />
+  <Host v="localhost" />
+</VirtualHost>
+
+
+<!-- <VirtualHost> -->
+<!--   <Port v="8000" /> -->
+<!--   <DocumentRoot v="/var/www/bite" /> -->
+<!--   <Host v="bite.louiz.org" /> -->
+<!-- </VirtualHost> -->
+
+<Module name="ModLogger">
+  <conf>
+    <path v="log"/>
+  </conf>
+</Module>
+
+<Module name="ModOpenSSL">
+  <conf>
+    <path v="certificate" />
+    <key v="certif.key" />
+    <cert v="certif.crt" />
+    <hosts v="localhost:4443" />
+  </conf>
+</Module>
+
+<Module name="ModPhp">
+  <conf>
+    <php	v="/usr/bin/php5-cgi"/>
+    <py		v="/usr/bin/python"/>
+    <pl		v="/usr/bin/speedy"/>
+  </conf>
+</Module>
+
+<!-- <Module name="ModGet"> -->
+<!-- </Module> -->
+
+
+</xml>

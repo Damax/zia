@@ -1,0 +1,8 @@
+localhost:8000/
+localhost:8000/index.php
+localhost:8000/index.html
+localhost:8000/1.html
+localhost:8000/1.jpg
+localhost:8000/2.jpg
+localhost:8000/index2.html
+localhost:8000/rfc2616.txt

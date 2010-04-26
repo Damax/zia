@@ -1,0 +1,5 @@
+<Module name="ModLogger">
+  <conf>
+    <path v="./log" />
+  </conf>
+</Module>

@@ -1,0 +1,41 @@
+###############
+#	      #
+# DOC API ZIA #
+#	      #
+###############
+
+
+Signaux:
+- on-request -> RequestInfo* (qui contient les infos de la requete)
+  	     -> ResponseInfo* ()
+	     -> NULL
+- on-exit
+	     -> NULL
+	     -> NULL
+	     -> NULL
+
+Delegate:
+	Pointeur sur methode pouvant pointer sur n´importe quelle méthode de n´importe quelle
+	classe.
+
+Handler:
+	Crée plusieurs listes de delegate, chacune associée à un signal.
+	Lorsque qu´on veut émettre par la suite un signal, on prend la liste de delegate
+	correspondant à ce signal et on execute les delegate dans l´ordre.
+
+	connect(String, Delegate) -> Connect un delegate (hook) a un signal.
+	emit(String, void*)	  -> Appelle tous les hooks associés à ce signal.
+
+Comment coder un Module :
+	cf ModulePath/dummy.cpp
+
+comment compiler un module :
+
+(placer le .cpp dans le dossier /src)
+
+Windows Visual Studio:
+	click droit -> propriétés -> général -> configuration type -> selectionner dll
+
+Linux:
+	g++ -shared ModuleName.cpp src/delegate.o -o ModuleName.so
+
